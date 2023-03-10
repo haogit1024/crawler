@@ -1,0 +1,16 @@
+/.idea/
+/.vscode
+/images/*
+*/images/*
+*/__pycache__/*
+.download_cache
+/.pytest_cache
+/image
+/iamges
+.request_cache
+.project
+.pydevproject
+.settings
+util/download
+./spider_data
+./venv

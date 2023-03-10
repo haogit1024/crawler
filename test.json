@@ -1,0 +1,12 @@
+{
+  "http_url": "https://introcs.cs.princeton.edu/java/data/leipzig/leipzig1m.txt",
+  "save_path": "download/leipzig1m.txt",
+  "index_byte": 0,
+  "finish_time": 0,
+  "last_req_time": 0,
+  "length": 0,
+  "mode": "wb",
+  "fail_num": 0,
+  "status": "begin",
+  "referer": "test111.com"
+}
