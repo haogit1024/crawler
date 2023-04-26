@@ -421,6 +421,7 @@ class WindowsChrome(BaseHttpClient):
         :param encoding: encoding:需要解析成指定的字符编码
         :return:
         """
+        cache_content = None
         # 读取缓存文件
         if self.enable_request_cache:
             cache_content = self.__get_cache(url)
