@@ -155,8 +155,13 @@ class DownloadUtil(object):
             'referer': referer,
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
             'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98", "Microsoft Edge";v="98"',
-            'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"macOS"', 'sec-fetch-dest': 'image',
-            'sec-fetch-mode': 'no-cors', 'sec-fetch-site': 'cross-site', 'Range': range}
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"macOS"',
+            'sec-fetch-dest': 'image',
+            'sec-fetch-mode': 'no-cors',
+            'sec-fetch-site': 'cross-site',
+            'Range': range,
+        }
         # headers = {"Range": range}
         now_time = time.time()
         try:

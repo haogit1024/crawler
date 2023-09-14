@@ -93,7 +93,6 @@ def test_parse_base_data(browser: WindowsChrome):
             image_url_list = json.loads(image_info)
             for image_url in image_url_list:
                 print(image_url)
-                pass
 
 
 if __name__ == '__main__':
