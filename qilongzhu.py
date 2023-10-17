@@ -9,11 +9,11 @@ if not os.path.exists(base_dir):
 
 
 def get_volumes(chrome: WindowsChrome) -> dict[str, str]:
-    url = r'http://comic.dragonballcn.com/dragonball_zh_cn.htm'
+    url = r'http://comic.dragonballcn.com/dragonball_zh_tw.htm'
     html = chrome.get(url, encoding='UTF-8')
     # print(html)
     soup = BeautifulSoup(html, 'html.parser')
-    hdnavli6_divs = soup.findAll('div', attrs={'id': 'hdnavli6'})
+    hdnavli6_divs = soup.findAll('div', attrs={'id': 'hdnavli2'})
     # print(hdnavli6_divs)
     hdnavli6_div_lis = []
     for div in hdnavli6_divs:
