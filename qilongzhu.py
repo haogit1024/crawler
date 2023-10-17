@@ -72,8 +72,8 @@ if __name__ == '__main__':
     print("run.....")
     chrome = WindowsChrome(max_download_num=1, enable_request_cache=True, request_cache_effective_time=36000)
     volume_map = get_volumes(chrome)
-    for key, value in volume_map:
-        parse_volume(chrome, key, value)
+    for key in volume_map.keys():
+        parse_volume(chrome, key, volume_map[key])
     # print(volume_map)
     # parse_volume(chrome, '卷一小悟空和他的伙伴们', 'list/gain_1.php?did=0-3-0')
     # get_image_url(chrome, 'list/gain_1.php?did=0-3-0&fpp=10&fid=1')
