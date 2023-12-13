@@ -419,7 +419,7 @@ class WindowsChrome(BaseHttpClient):
         requests.get(url, headers=self.headers)
         self.session = requests.session()
 
-    def get(self, url: str, encoding: str = None):
+    def get(self, url: str, encoding: str = None) -> str | bytes:
         """
         获取http请求response
         :param url: 请求url
