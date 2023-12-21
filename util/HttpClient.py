@@ -182,6 +182,9 @@ class DownloadUtil(object):
                 self.__write_cache(cache_path, cache_data)
                 return
             if not response.headers.__contains__('Content-Range'):
+                # todo 如果没有返回 Content-Range 计算现在现在下载的内容是否已经是全部内容，如果是去掉return，继续走保存逻辑
+                age = response.headers['Age']
+                log.info(f'age: {age}, contentLength: {len(response.content)}')
                 log.info('header not contains Content-Range, response headers: ')
                 log.info(response.headers)
                 log.info(len(response.content))
@@ -192,8 +195,12 @@ class DownloadUtil(object):
                 log.info(response.status_code)
                 log.info(response.content)
                 # 没有content-range响应头，直接写入数据
-                # with open(save_path, cache_data['mode']) as f:
-                #     f.write(response.content)
+                with open(save_path, cache_data['mode']) as f:
+                    f.write(response.content)
+                cache_data['index_byte'] = end_byte + 1
+                cache_data['last_req_time'] = int(now_time)
+                cache_data['status'] = 'finish'
+                self.__write_cache(cache_path, cache_data)
                 return
             # 计算下载需要的时间，适当提高下载速度。目前以2秒为一个下载区间
             req_end_time = int(round(time.time() * 1000))
@@ -247,6 +254,7 @@ class DownloadUtil(object):
 
         # 写入文件
         with open(save_path, cache_data['mode']) as f:
+            log.info("开始写入文件, url: %s, file_name: $s" % (http_url, save_path))
             f.write(response.content)
             # 下载完一部分后修改文件写入状态
             cache_data['mode'] = r'ab'
@@ -419,7 +427,7 @@ class WindowsChrome(BaseHttpClient):
         requests.get(url, headers=self.headers)
         self.session = requests.session()
 
-    def get(self, url: str, encoding: str = None) -> str | bytes:
+    def get(self, url: str, encoding: str = None) :
         """
         获取http请求response
         :param url: 请求url
