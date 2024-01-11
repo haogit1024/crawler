@@ -98,13 +98,12 @@ if __name__ == "__main__":
     # chrome.download(r"https://unpkg.com/vuex@3.1.1/dist/vuex.min.js", "vuex@3.1.1/dist/vuex.min.js")
     # chrome.download(r"https://unpkg.com/vue-router@3.0.2/dist/vue-router.min.js", "vue-router@3.0.2/dist/vue-router.min.js")
     chrome.download(r"https://unpkg.com/axios@0.21.4/dist/axios.min.js", "axios@0.21.4/dist/axios.min.js")
-    chrome.download(r"https://unpkg.com/element-ui@2.13.2/lib/index.js", "element-ui@2.13.2/lib/index.js")
+    # chrome.download(r"https://unpkg.com/element-ui@2.13.2/lib/index.js", "element-ui@2.13.2/lib/index.js")
     # chrome.download(r"https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js", "npm/nprogress@0.2.0/nprogress.min.js")
     # chrome.download(r"https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js", "npm/sortablejs@1.8.4/Sortable.min.js")
     # chrome.download(r"https://cdn.jsdelivr.net/npm/vuedraggable@2.20.0/dist/vuedraggable.umd.min.js", "npm/vuedraggable@2.20.0/dist/vuedraggable.umd.min.js")
     # chrome.download(r"https://cdn.jsdelivr.net/npm/heic2any@0.0.3/dist/heic2any.min.js", "npm/heic2any@0.0.3/dist/heic2any.min.js")
     # chrome.download(r"https://cdn.jsdelivr.net/npm/mockjs@1.0.1-beta3/dist/mock.min.js", "npm/mockjs@1.0.1-beta3/dist/mock.min.js")
-
     chrome.close(True)
     print("final")
 

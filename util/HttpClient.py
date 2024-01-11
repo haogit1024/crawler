@@ -8,6 +8,7 @@ from abc import ABCMeta, abstractmethod
 from multiprocessing import Pool, Process, Manager
 import shutil
 import urllib
+import sys
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("WindowsChrome")
@@ -184,7 +185,7 @@ class DownloadUtil(object):
             if not response.headers.__contains__('Content-Range'):
                 # todo 如果没有返回 Content-Range 计算现在现在下载的内容是否已经是全部内容，如果是去掉return，继续走保存逻辑
                 age = response.headers['Age']
-                log.info(f'age: {age}, contentLength: {len(response.content)}')
+                log.info(f'age: {age}, contentLength: {sys.getsizeof(response.content)}')
                 log.info('header not contains Content-Range, response headers: ')
                 log.info(response.headers)
                 log.info(len(response.content))
