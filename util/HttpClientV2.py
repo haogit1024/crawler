@@ -137,10 +137,11 @@ class BrowserMock(object):
             # 组装请求头 计算range 和 referer
             start_byte = download_info['index_byte']
             download_size = download_info['download_size']
-            referer = download_size['referer']
-            if referer is None:
-                parse_result = urllib.parse.urlparse(url)
-                referer = parse_result.scheme + r'://' + parse_result.netloc + r'/'
+            referer = ''
+            # referer = download_info['referer']
+            # if referer is None:
+            #     parse_result = urllib.parse.urlparse(url)
+            #     referer = parse_result.scheme + r'://' + parse_result.netloc + r'/'
             end_byte = start_byte + download_size * 1024
             range = 'bytes={start}-{end}'.format(start=start_byte, end=end_byte)
             headers: dict = self.__gen_download_header(referer, range)
@@ -205,7 +206,7 @@ class BrowserMock(object):
         return {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
             # 'Upgrade-Insecure-Requests': '1',
-            'referer': referer,
+            # 'referer': referer,
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
             'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98", "Microsoft Edge";v="98"',
             'sec-ch-ua-mobile': '?0',
@@ -236,4 +237,9 @@ class BrowserMock(object):
 if __name__ == "__main__":
     browser = BrowserMock(enable_request_cache=True)
     html = browser.get("https://www.baidu.com")
+    browser.download(
+        r'https://cdn.dzqyh.com/shoutan-program/icon_stage_zhongji.png',
+        r'/Users/chenzhihao/Downloads',
+        r'fuck.png'
+    )
     print(html)
