@@ -595,6 +595,7 @@ if __name__ == '__main__':
         'https://detail.tmall.com/item.htm?spm=a1z10.1-b-s.w5003-21790579165.3.4f007b7dM5WM1x&id=36518101636&scene=taobao_shop',
         encoding="UTF-8")
     print(html)  # print(html)
+    http_client.download()
     # html = http_client.get('https://www.baidu.com')
     # print(html)
     # print(html)
