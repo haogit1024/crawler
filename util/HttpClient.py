@@ -555,6 +555,10 @@ class WindowsChrome(BaseHttpClient):
     def __del_cache(self):
         delete_cache(self.download_cache_path, self.request_cache_effective_time)
 
+    def get_referer(self, url: str) -> str:
+        parse_result = urllib.parse.urlparse(url)
+        return parse_result.scheme + r'://' + parse_result.netloc + r'/'
+
     def close(self, is_join: bool):
         """
         用户必须手动调用该方法
