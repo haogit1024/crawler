@@ -37,8 +37,10 @@ def get_http_link(html: str) -> list[str]:
     return links
 
 if __name__ == '__main__':
+    html_link = 'https://www.ruiqichina.com/Recruitment/index.html'
     http_client = WindowsChrome(enable_request_cache=False)
-    html = http_client.get('https://www.ruiqichina.com/Recruitment/index.html', encoding='utf-8')
+    html = http_client.get(html_link)
     # print(html)
     links = get_http_link(html)
     print(links)
+    domain: str = http_client.get_referer(html_link)
