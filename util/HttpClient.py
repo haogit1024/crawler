@@ -570,6 +570,9 @@ class WindowsChrome(BaseHttpClient):
             self.__download_pool.join()
 
     def test(self):
+        """
+        测试方法
+        """
         log.info("fuck %s", r'you')
 
 

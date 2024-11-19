@@ -14,3 +14,4 @@
 util/download
 ./spider_data
 ./venv
+.DS_Store
